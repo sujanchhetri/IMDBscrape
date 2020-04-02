@@ -64,7 +64,7 @@ id:'The_Godfather'
             genres,
             popularity
         });
-        let file = fs.createWriteStream(`${movie.id}.jpg`);
+        let file = fs.createWriteStream(`./posters/${movie.id}.jpg`);
          
         //for poster
         let stream = request({
@@ -87,7 +87,7 @@ id:'The_Godfather'
     const json2csvParser = new Json2csvParser();
     const csv = json2csvParser.parse(moviesData);
 
-    fs.writeFileSync('./data.csv', csv, 'utf-8');
-    console.log(csv);
+    fs.writeFileSync('./data/data.csv', csv, 'utf-8');
+    console.log("ALL done Dude!!!");
 
 })()
