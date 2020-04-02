@@ -1,12 +1,22 @@
 # IMDBscrape
 A scraper made with request-promise,cheerio,json2csv and NODE.js
 
-## This scrapper scrapes data of a movie and put it into a .csv format
+## This scrapper scrapes data of a movie and put it into a .csv format,
+## Also let's you to download poster
 
 ### Dependencies
 * request-promise `npm i request-promise`
 * cheerio `npm i cheerion`
 * json2csv `npm i json2csv`
+
+### Steps to follow
+* USE `node index` to run the script
+* ADD URL inside this `const URLS = [
+    {
+url:'',
+id:'movie_name'
+}
+`
 
 
 ### Links to follow
