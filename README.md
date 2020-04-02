@@ -6,7 +6,7 @@ A scraper made with request-promise,cheerio,json2csv and NODE.js
 
 ### Dependencies
 * request-promise `npm i request-promise`
-* cheerio `npm i cheerion`
+* cheerio `npm i cheerio`
 * json2csv `npm i json2csv`
 
 ### Steps to follow
