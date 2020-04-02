@@ -2,7 +2,7 @@
 A scraper made with request-promise,cheerio,json2csv and NODE.js
 
 ## This scrapper scrapes data of a movie and put it into a .csv format,
-## Also let's you to download poster
+## Also let's you to download the movie poster
 
 ### Dependencies
 * request-promise `npm i request-promise`
@@ -17,6 +17,7 @@ url:'',
 id:'movie_name'
 }
 `
+
 
 
 ### Links to follow
