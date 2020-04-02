@@ -5,7 +5,8 @@ const Json2csvParser = require('json2csv').Parser;
 
 const URLS = [
     'https://www.imdb.com/title/tt0111161/?pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=e31d89dd-322d-4646-8962-327b42fe94b1&pf_rd_r=5MFAZZS1R7W4HT4MNKSZ&pf_rd_s=center-1&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_tt_1', 
-    'https://www.imdb.com/title/tt0050083/?pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=e31d89dd-322d-4646-8962-327b42fe94b1&pf_rd_r=5MFAZZS1R7W4HT4MNKSZ&pf_rd_s=center-1&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_tt_5'
+    'https://www.imdb.com/title/tt0050083/?pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=e31d89dd-322d-4646-8962-327b42fe94b1&pf_rd_r=5MFAZZS1R7W4HT4MNKSZ&pf_rd_s=center-1&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_tt_5',
+    'https://www.imdb.com/title/tt0068646/?pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=e31d89dd-322d-4646-8962-327b42fe94b1&pf_rd_r=5MFAZZS1R7W4HT4MNKSZ&pf_rd_s=center-1&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_tt_2'
 ];
 
 (async () => {
@@ -38,7 +39,7 @@ const URLS = [
         let popularity = $('#title-overview-widget > div.plot_summary_wrapper > div.titleReviewBar > div:nth-child(5) > div.titleReviewBarSubItem > div:nth-child(2) > span').text().trim();
         let genres = [];
 
-        $('div[class="title_wrapper"] a[href^="/genre/"]').each((i, elm) => {
+        $('div[class="title_bar_wrapper"] a[href^="/search/"]').each((i, elm) => {
             let genre = $(elm).text();
             
             genres.push(genre);
@@ -50,7 +51,8 @@ const URLS = [
             poster,
             totalRatings,
             releaseDate,
-            genres
+            genres,
+            popularity
         });
         
     }
