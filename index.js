@@ -64,9 +64,12 @@ id:'The_Godfather'
             genres,
             popularity
         });
+    
         let file = fs.createWriteStream(`./posters/${movie.id}.jpg`);
          
         //for poster
+
+        await new Promise((resolve,reject)=>{
         let stream = request({
             uri:poster,
             headers:{
@@ -80,14 +83,27 @@ id:'The_Godfather'
                     },
                     gzip:true
         })
-        .pipe(file)
-    }
-    
+        .pipe(file)  
+        .on('finish',()=>{
+
+        console.log(`${movie.id}  poster is downloaded`);
+        resolve();
+    })
+    .on('error',(error)=>{ 
+        reject(error);
+    })
+    })
+     .catch(error=>{
+        console.log(`${movie.id}has error on download ${error}`) ;
+     
+    });
+}
     //for csv file
     const json2csvParser = new Json2csvParser();
     const csv = json2csvParser.parse(moviesData);
 
     fs.writeFileSync('./data/data.csv', csv, 'utf-8');
-    console.log("ALL done Dude!!!");
+    console.log("Downloaded data succesfully");
+    console.log("Hurray!!!");
 
 })()
